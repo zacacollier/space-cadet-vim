@@ -45,6 +45,34 @@ Pull down the `.vimrc` and run `vim` to install plugins:
 git clone https://github.com/zacacollier/space-cadet-vim/master/.vimrc ~/.vimrc && vim -c "PlugInstall"
 ```
 
+### Usage
+
+Workflow example:
+
+1. Fuzzy-find a file while editing:
+
+```vim
+<Space-f-f> (start typing)
+```
+
+2. Tab up / down in FZF's dialog and open the file in a new tab:
+
+```vim
+<C-p> / <C-n>,  <C-t>
+```
+
+3. Quickly move between tabs (left and right):
+
+```vim
+<Shift-H> / <Shift-L>
+```
+
+4. Open or close error dialog in the `loclist`:
+
+```vim
+<Space-e-l> / <Space-e-c>
+```
+
 ### Configuration
 
 #### Leader Guide
@@ -82,14 +110,16 @@ The Leader Guide is configured in the bottom section of the `.vimrc`, where each
 ```
 
 Under the `" Files` header, the leftmost-indented binding defines the **Leader Group Key** and **Name** within the global `lmap` dictionary that tracks custom Leader mappings:
-```
+
+```vim
   " Files
   let g:lmap.f = { 'name': 'files' }
     nnoremap <silent>! <leader>f<CR>
 ```
 
 Basically, this configures `<Space> f <Enter>` to open the `[f] files` Leader Group, within which are contained the following four `<leader>`-bound commands:
-```
+
+```vim
     let g:lmap.f.d = ['e $HOME/.vimrc', 'edit $HOME/.vimrc']
     nnoremap <silent>! <leader>fd<CR>
 
@@ -112,7 +142,8 @@ The end result looks something like this:
 ```
 
 You can also nest groups inside of groups (insert obligatory DMX "yo dawg we herd u like" meme here):
-```
+
+```vim
   " UI
   let g:lmap.u = { 'name': 'UI' }
   nnoremap <silent>! <leader>u<CR>

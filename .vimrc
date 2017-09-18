@@ -63,6 +63,12 @@
   highlight Comment cterm=italic
   set list!
 
+  " Line number highlighting
+  hi LineNr cterm=italic
+  hi CursorLineNr cterm=bold,italic,standout
+  " augroup CLNRSet
+  "     autocmd! ColorScheme * hi CursorLineNr cterm=bold
+  " augroup END
   " Shift-l / -h to change tabs
   noremap <S-l> gt
   noremap <S-h> gT
