@@ -15,16 +15,15 @@
   Plug 'shime/vim-livedown'
   Plug 'terryma/vim-multiple-cursors'
   Plug 'scrooloose/nerdtree'
-  Plug 'junegunn/rainbow_parentheses.vim'
-
+  Plug 'jiangmiao/auto-pairs'
   " Bling
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'chriskempson/base16-vim'
+  Plug 'junegunn/rainbow_parentheses.vim'
 
   " Highlighting & Completion
   Plug 'mxw/vim-jsx'
-  Plug 'flowtype/vim-flow'
   Plug 'pangloss/vim-javascript'
   Plug 'reasonml-editor/vim-reason'
   Plug 'w0rp/ale'
@@ -66,9 +65,12 @@
   " Line number highlighting
   hi LineNr cterm=italic
   hi CursorLineNr cterm=bold,italic,standout
+
+  " This augroup might be needed if LineNr / CursorLineNr settings don't work:
   " augroup CLNRSet
   "     autocmd! ColorScheme * hi CursorLineNr cterm=bold
   " augroup END
+
   " Shift-l / -h to change tabs
   noremap <S-l> gt
   noremap <S-h> gT
@@ -81,6 +83,8 @@
 
   " UI general configs
   set relativenumber                  " relative line numbers
+  set number                          " show absolute line number on current line
+  set numberwidth=5
   set showcmd                         " Show (partial) command in status line
   set showmatch                       " Show matching brackets
   set showmode                        " Show current mode
@@ -118,9 +122,6 @@
   \}
   " Language-related settings
   let g:jsx_ext_required = 0
-  let g:flow#autoclose = 1
-  let g:flow#showquickfix = 0
-  let g:flow#timeout = 4
 
 """ }}}
 
@@ -213,7 +214,7 @@
     let g:lmap.e.n = ['lnext', 'next']
     nnoremap <silent>! <leader>en<CR>
 
-    let g:lmap.e.n = ['lprevious', 'previous']
+    let g:lmap.e.p = ['lprevious', 'previous']
     nnoremap <silent>! <leader>ep<CR>
   "
 
