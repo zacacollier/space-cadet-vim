@@ -16,7 +16,7 @@
 ### Dependencies
 
 Install:
-- Vim 8
+- Neovim 0.2.0 or Vim 8
 - iTerm2 with [256-color and italic font support](https://alexpearce.me/2014/05/italics-in-iterm2-vim-tmux/)
 - [fzf](https://github.com/junegunn/fzf#installation)
 - latest [**MacVim**](https://github.com/macvim-dev/macvim/releases) and **CMake** for [YCM](https://github.com/Valloric/YouCompleteMe#installation)
@@ -168,3 +168,29 @@ it'll instead produce an innocuous `[d] YcmShowDetailedDiagnostic` mapping
 which, when invoked, will read back a log from YCM letting you know it couldn't
 automatically read the file. This minor UI blemish can likely be configured away,
 though it hasn't affected performance or anything for me so far.
+
+### YMMV: Performance issues
+I've had some issues with YCM causing Vim to get realllllly laggy. Neovim, however, works great!
+
+```bash
+cp -R ~/.config/nvim ~/.config/nvim.backup
+cp -R ~/.vim ~/.config/nvim
+cp ~/.vimrc ~/.config/nvim/init.vim
+```
+
+You'll want to update these Leader mappings:
+
+```bash
+
+    let g:lmap.f.d = ['e $HOME/.config/nvim/init.vim', 'edit $HOME/.config/nvim/init.vim']
+    nnoremap <silent>! <leader>fd<CR>
+
+    let g:lmap.f.R = ['source $HOME/.config/nvim/init.vim', 'refresh init.vim']
+    nnoremap <silent>! <leader>fR<CR>
+
+    ...
+    ...
+
+    let g:lmap.p.c = [ 'PlugClean', 'clean $HOME/.config/nvim/plugged' ]
+    nnoremap <silent>! <leader>pc<CR>
+```
