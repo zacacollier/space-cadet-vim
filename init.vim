@@ -122,6 +122,7 @@
   let g:ale_set_quickfix = 0
   let g:ale_linters = {
   \   'javascript': ['eslint', 'flow'],
+  \   'reason': ['merlin'],
   \}
   " Language-related settings
   let g:jsx_ext_required = 0
