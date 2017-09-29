@@ -6,28 +6,31 @@
   call plug#begin('~/.vim/plugged')
 
   " Usability
+  Plug 'Yggdroot/indentLine'
+  Plug 'hecal3/vim-leader-guide'
+  Plug 'jiangmiao/auto-pairs'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
-  Plug 'tpope/vim-sensible'
-  Plug 'tpope/vim-fugitive'
-  Plug 'hecal3/vim-leader-guide'
-  Plug 'Yggdroot/indentLine'
+  Plug 'mhinz/vim-startify'
+  Plug 'scrooloose/nerdtree'
   Plug 'shime/vim-livedown'
   Plug 'terryma/vim-multiple-cursors'
-  Plug 'scrooloose/nerdtree'
-  Plug 'jiangmiao/auto-pairs'
+  Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-sensible'
+  Plug 'tpope/vim-surround'
+
   " Bling
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
   Plug 'chriskempson/base16-vim'
   Plug 'junegunn/rainbow_parentheses.vim'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
 
   " Highlighting & Completion
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'mxw/vim-jsx'
   Plug 'pangloss/vim-javascript'
   Plug 'reasonml-editor/vim-reason'
   Plug 'w0rp/ale'
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
   call plug#end()
 
@@ -40,7 +43,7 @@
   let base16colorspace=256
   colorscheme base16-tomorrow-night
   " Shorten the time before the vim-leader-guide buffer appears
-  set timeoutlen=50
+  set timeoutlen=3000
 
   if !&scrolloff
     set scrolloff=3       " Show next 3 lines while scrolling.
