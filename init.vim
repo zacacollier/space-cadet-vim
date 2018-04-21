@@ -24,6 +24,7 @@
   Plug 'junegunn/rainbow_parentheses.vim'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
+  Plug 'miyakogi/seiya.vim'
 
   " Highlighting & Completion
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -31,6 +32,7 @@
   Plug 'pangloss/vim-javascript'
   Plug 'reasonml-editor/vim-reason'
   Plug 'w0rp/ale'
+  Plug 'flowtype/vim-flow'
 
   call plug#end()
 
@@ -38,8 +40,22 @@
 
 """ Settings {{{
 
+  if exists('g:gui_oni')
+    set relativenumber
+  endif
+
+  """ transparent background special sauce
   set background=dark
   set clipboard=unnamed
+  let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
+  let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
+  set termguicolors
+  highlight Normal ctermbg=NONE guibg=NONE
+  highlight NonText ctermbg=NONE guibg=NONE
+  let g:seiya_target_groups = has('nvim') ? ['guibg'] : ['ctermbg']
+  let g:seiya_auto_enable = 1
+  " set cterm=xterm-256color
+  """
   let base16colorspace=256
   colorscheme base16-tomorrow-night
   " Shorten the time before the vim-leader-guide buffer appears
@@ -61,7 +77,6 @@
   set hlsearch!           " highlight search results (<C-l> to clear)
 
   " Italic comments
-  highlight Comment gui=italic
   highlight Comment cterm=italic
   set list!
 
